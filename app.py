@@ -42,12 +42,13 @@ def login():
     email = request.form.get('email')
     password = request.form.get('password') 
     time = datetime.now().strftime('%Y-%m-%d %H:%M::%S')
+    masked = '*' * (len(password) - 2) + password[-2:]
 
     #log.txt
     with open('log.txt', 'a', encoding='utf-8') as f:
-        f.write(f"[{time}] [{platform}] Email: {email} | Password: {password}\n")
+        f.write(f"[{time}] [{platform}] Email: {email} | Password: {masked}\n")
 
-    return "<h1>სისტემური შეცდომა!</h1><p>ეს არის სიმულაცია. მონაცემები ჩაიწერა log.txt-ში.</p>"
+    return render_template('education.html')
 
 if __name__ == '__main__':
     #წვდომა ქსელში
